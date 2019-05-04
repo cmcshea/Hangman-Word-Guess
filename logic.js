@@ -57,7 +57,10 @@ function getBlanks (word) {
 
 // Name your function fillBlanks, and have it take three arguments: the word string, the array of the current puzzle state, and the letter that is going to be filled in (arguments in that order).
 
-function fillBlanks (wordString, puzzleArray, fillLetter);
+function fillBlanks (wordString, puzzleArray, fillLetter) {
+
+}
+
 
 
 // 1.4 - fillBlanks function
