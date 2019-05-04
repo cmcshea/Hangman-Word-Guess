@@ -41,40 +41,18 @@ function isCorrectGuess(word, letter ) {
 // // returns ["_", "_", "_", "_", "_"]
 // getBlanks("hello");
 
-
-// function getBlanks (word) {
-//    //computer generates random word from words array
-//    var lettersInWord = randomIndex.split("");
-//    var blanksArr = [];
-//    //store length of word in blanks, for later use
-//    var getBlanks = lettersInWord.length;
-
-//    //creating a loop to generate "_" for each letter in array stored in blanks
-//    for (var i = 0; i < getBlanks; i++) {
-//        blanksArr.push("_");
-//    }
-//    return blanksArr[getBlanks];
-// }
-
-
-  function getBlanks(word) {
-    var blanksArr = [];
-    var lettersInWord = randomIndex.split("");
-    for (var i = 0; i < getBlanks.length; i++) {
-      blanksArr.push("_");
+//Creating getBlanks function
+function getBlanks (word) {
+//Declaring blanksArr, assigning value []
+  var blanksArr = [];
+//For loop to determine no. of blanks
+  for (var i = 0; i < word.length; i++) {
+    blanksArr.push("_");
   }
-    return blanksArr[word];
+  return blanksArr;
 }
 
 
-// function getBlanks(word ) {
-//   expect(getBlanks(word)).to.deep.equal(blanksUtil(word));
-//   return word["_", "_", "_", "_", "_", "_"]; 
-
-// }
-// function randomWord(words) {
-//       var random =  Math.floor(Math.random() * words.length);
-//       return words[random];
 
 // 1.4 - fillBlanks function
 // The final "utility" you'll need is one which will fill a blanks array in the correct locations given a letter and the word that array was built from. 
