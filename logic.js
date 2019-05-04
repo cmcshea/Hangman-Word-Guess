@@ -42,16 +42,36 @@ function isCorrectGuess(word, letter ) {
 // getBlanks("hello");
 
 
+// function getBlanks (word) {
+//    //computer generates random word from words array
+//    var lettersInWord = randomIndex.split("");
+//    var blanksArr = [];
+//    //store length of word in blanks, for later use
+//    var getBlanks = lettersInWord.length;
 
-  
+//    //creating a loop to generate "_" for each letter in array stored in blanks
+//    for (var i = 0; i < getBlanks; i++) {
+//        blanksArr.push("_");
+//    }
+//    return blanksArr[getBlanks];
+// }
+
+
   function getBlanks(word) {
-    var word = "summer";
-    var blanks = ["_", "_", "_", "_", "_", "_"];
-    return word[blanks];   
-
+    var blanksArr = [];
+    var lettersInWord = randomIndex.split("");
+    for (var i = 0; i < getBlanks.length; i++) {
+      blanksArr.push("_");
+  }
+    return blanksArr[word];
 }
 
 
+// function getBlanks(word ) {
+//   expect(getBlanks(word)).to.deep.equal(blanksUtil(word));
+//   return word["_", "_", "_", "_", "_", "_"]; 
+
+// }
 // function randomWord(words) {
 //       var random =  Math.floor(Math.random() * words.length);
 //       return words[random];
@@ -66,4 +86,4 @@ function isCorrectGuess(word, letter ) {
 // fillBlanks("hello", ["_", "e", "_", "_", "_"], "l");
 // Name your function fillBlanks, and have it take three arguments: the word string, the array of the current puzzle state, and the letter that is going to be filled in (arguments in that order).
 
-function 
+// function fillBlanks (wordString, [], letter)
