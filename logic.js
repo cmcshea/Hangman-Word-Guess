@@ -43,15 +43,21 @@ function isCorrectGuess(word, letter ) {
 
 //Creating getBlanks function
 function getBlanks (word) {
+
 //Declaring blanksArr, assigning value []
+
   var blanksArr = [];
 //For loop to determine no. of blanks
+
   for (var i = 0; i < word.length; i++) {
     blanksArr.push("_");
   }
   return blanksArr;
 }
 
+// Name your function fillBlanks, and have it take three arguments: the word string, the array of the current puzzle state, and the letter that is going to be filled in (arguments in that order).
+
+function fillBlanks (wordString, puzzleArray, fillLetter);
 
 
 // 1.4 - fillBlanks function
@@ -63,5 +69,3 @@ function getBlanks (word) {
 // // returns ["_", "e", "l", "l", "_"]
 // fillBlanks("hello", ["_", "e", "_", "_", "_"], "l");
 // Name your function fillBlanks, and have it take three arguments: the word string, the array of the current puzzle state, and the letter that is going to be filled in (arguments in that order).
-
-// function fillBlanks (wordString, [], letter)
