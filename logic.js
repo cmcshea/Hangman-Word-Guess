@@ -2,8 +2,8 @@
 
 var gameWords = ["colombia", "india", "netherlands", "germany", "hungary"];
 
-console.log(gamewords.length);
-console.log(gamewords[2]);
+console.log(gameWords.length);
+console.log(gameWords[2]);
 
 // 1.1 - randomWord function
 // Create a function named randomWord. It should take a single argument, an array of words, and should return a random word from that array.
@@ -65,91 +65,59 @@ function getBlanks(word) {
 // fillBlanks("hello", ["_", "e", "_", "_", "_"], "l");
 // Name your function fillBlanks, and have it take three arguments: the word string, the array of the current puzzle state, and the letter that is going to be filled in (arguments in that order).
 
-
+//Create fillBlanks function with 3 arguments
 function fillBlanks(word, puzzleArray, guess) {
-  // var puzzleArray = [];
+  //Create for loop 
   for (var i = 0; i < word.length; i++) {
-    if (word[i] === guess) {
+    if (word[i].toLowerCase() === guess.toLowerCase()) {
       puzzleArray[i] = guess;
-      remainingLetters--;
-      }
-    }
+    } 
   }
-result.toString();
+  return puzzleArray;
+}
 
-//   var puzzleArray = [];
-//   for (var i = 0; i < word.length; i++) {
-//     if (puzzleArray[i] === letterGuess);
-//   }
-//   return word;
-// }
+function setupRound(word){
+  var wordObj = {
+    word: word,
+    guessesLeft: 9,
+    wrongGuesses: [],
+    puzzleState: getBlanks(word)
+  }
+  return wordObj;
+}
 
-// // for(var i = 0; i < wordLength; i++) { 
-// //   document.write(result[i] + '  ');  
-// }
+function updateRound(roundObject, stringLetter){
+  if(roundObject.word.indexOf(stringLetter) != -1){
+    roundObject.puzzleState = fillBlanks(roundObject.word, roundObject.puzzleState, stringLetter)
+  } else {
+    roundObject.guessesLeft--;
+    roundObject.wrongGuesses.push(stringLetter)
+  }
 
+//   1.7 - hasWon function
+// To know when you need to start a new round, you're going to need to check if the game has been won or lost. Let's start with checking if the round has been won.
+// For this, use a function named hasWon, that takes the array puzzleState as the only argument.
+// How can you tell if the round has been won with this information?
+// The function should return true if the round is won, false otherwise.
 
+function hasWon(puzzleState) {
+  (puzzleState.indexOf("_") != -1)
 
-//   function isCorrectGuess(word, letter ) {
-//     for (var i = 0; i < word.length; i++) {
-//       if (word[i] === letter) {
-//         return true;
-//       }
-//     }
-//     return false;
-//   }
-//   const words = ['John', 'Jacob', 'Jingleheimersmith']
-
-// function chooseWord(array) {
-//   return array[Math.floor(Math.random() * array.length)].toUpperCase()
-// }
-
-// function fillInWordWithLetter(letter, word) {
-//   return word.toLowerCase().split('').map(l =>  {
-//     if (l === letter) {
-//       return l.toUpperCase()
-//     }
-//     return '_'
-//   }).join(' ')
-// }
-
-// fillInWordWithLetter('j', chooseWord(words))
-
-//   var answerArray = [];
-//   for (var i = 0; i < word.length; i++) {
-//   answerArray[i] = "_";
-//   }
-//   var remainingLetters = word.length;
-//   // The game loop
-//   while (remainingLetters > 0) {
-//   // Show the player their progress
-//   alert(answerArray.join(" "));
-//   // Get a guess from the player
-//   var guess = prompt("Guess a letter, or click Cancel to stop playing.");
-//   if (guess === null) {
-//   // Exit the game loop
-//   break;
-//   } else if (guess.length !== 1) {
-//   alert("Please enter a single letter.");
-//   } else {
-//   // Update the game state with the guess
-//   for (var j = 0; j < word.length; j++) {
-//   if (word[j] === guess) {
-//   answerArray[j] = guess;
-//   remainingLetters--;
-//   }
-//   }
-//   }
+  }
 
 
+  // var doesExist = false;
 
+  // for(var i = 0; i < roundObject.word.length; i++){
+  //   if(roundObject.word[i] === stringLetter){
+  //     doesExist = true;
+  //   }
+  // }
 
-
-// 1.4 - fillBlanks function
-// The final "utility" you'll need is one which will fill a blanks array in the correct locations given a letter and the word that array was built from. 
-// For example:
-// // returns ["h", "_", "_", "_", "_"]
-// fillBlanks("hello", ["_", "_", "_", "_", "_"], "h");
-
-// // returns ["_", "e", "l", "l", "_"]
-// fillBlanks("hello", ["_", "e", "_", "_", "_"], "l");
+  // if(doesExist === true){
+  //   roundObject.puzzleState = fillBlanks(roundObject.word, roundObject.puzzleState, stringLetter)
+  // } else {
+  //   roundObject.guessesLeft--;
+  //   roundObject.wrongGuesses.push(stringLetter)
+  // }
+}
