@@ -76,6 +76,22 @@ function fillBlanks(word, puzzleArray, guess) {
   return puzzleArray;
 }
 
+// 1.5 - setupRound function
+// To start the game logic, you're going to need a way to track all of the information associated with an individual "round" of the game.
+// Create function named setupRound which will be used to create the "round" object. It should take a single argument: the word.
+// The function should return an object with the following properties and values:
+
+
+// word - set to the word passed in as an argument
+
+// guessesLeft - set to 9 to start
+
+// wrongGuesses - an empty array to start (since there haven't been any guesses yet)
+
+// puzzleState - array of blanks representation of word to start. You can update this later when someone makes a correct guess.
+
+// For this and the following functions, think about how you can use functions we've already created!
+
 function setupRound(word){
   var wordObj = {
     word: word,
@@ -85,6 +101,11 @@ function setupRound(word){
   }
   return wordObj;
 }
+
+// 1.6 - updateRound function
+// Now that you can create rounds, you want to be able to update that round every time the user guesses a letter.
+// Write a function named updateRound that takes two arguments: the round object and the string letter guessed.
+// This function should, based on the letter guessed, update all relevant aspects of the round object passed as an argument.
 
 function updateRound(roundObject, stringLetter){
   if(roundObject.word.indexOf(stringLetter) != -1){
@@ -101,10 +122,10 @@ function updateRound(roundObject, stringLetter){
 // The function should return true if the round is won, false otherwise.
 
 function hasWon(puzzleState) {
-  (puzzleState.indexOf("_") != -1)
-
+  (puzzleState.indexOf("_") != -1);
+  return true;
   }
-
+  
 
   // var doesExist = false;
 
