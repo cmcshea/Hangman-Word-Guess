@@ -140,6 +140,14 @@ function hasLost(guessesLeft) {
   } return false;
 }
 
+// 1.9 - isEndOfRound function
+// Finally, to allow us to know if you need to start a new round, create a function to check if the round is over. Name it isEndOfRound. It should take the round object as an argument, and return true if the round is over, and false otherwise.
+// You'll want to use this function later to trigger starting a new round.
+
+ function isEndOfRound(roundObject) {
+
+ }
+
   // var doesExist = false;
 
   // for(var i = 0; i < roundObject.word.length; i++){
