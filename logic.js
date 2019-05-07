@@ -122,16 +122,16 @@ function updateRound(roundObject, stringLetter){
 // The function should return true if the round is won, false otherwise.
 
 function hasWon(puzzleState) {
-  if (puzzleState.indexOf("_") != -1){
-  return true;
-  } return false 
+  if (puzzleState.indexOf("_") !== -1){
+  return false;
+  } return true; 
 }
 
-function hasWon(puzzleState) {
-  if (puzzleState != -1 {
-  return true;
-  } return false 
-}
+// function hasWon(puzzleState) {
+//   if (puzzleState != -1 } 
+//   return true;
+//   } return false 
+// }
 
   // var doesExist = false;
 
