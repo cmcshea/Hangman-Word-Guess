@@ -145,8 +145,11 @@ function hasLost(guessesLeft) {
 // You'll want to use this function later to trigger starting a new round.
 
  function isEndOfRound(roundObject) {
-
- }
+  if (roundObject.puzzleState.indexOf("_") !== -1){
+    return true;
+    } return false; 
+  }
+ 
 
   // var doesExist = false;
 
