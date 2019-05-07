@@ -114,6 +114,7 @@ function updateRound(roundObject, stringLetter){
     roundObject.guessesLeft--;
     roundObject.wrongGuesses.push(stringLetter)
   }
+}
 
 //   1.7 - hasWon function
 // To know when you need to start a new round, you're going to need to check if the game has been won or lost. Let's start with checking if the round has been won.
@@ -127,11 +128,7 @@ function hasWon(puzzleState) {
   } return true; 
 }
 
-// function hasWon(puzzleState) {
-//   if (puzzleState != -1 } 
-//   return true;
-//   } return false 
-// }
+
 
   // var doesExist = false;
 
@@ -147,4 +144,4 @@ function hasWon(puzzleState) {
   //   roundObject.guessesLeft--;
   //   roundObject.wrongGuesses.push(stringLetter)
   // }
-}
+
