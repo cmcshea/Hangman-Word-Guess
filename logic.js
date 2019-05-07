@@ -129,6 +129,16 @@ function hasWon(puzzleState) {
 }
 
 
+// 1.8 - hasLost function
+// Next, use a function named hasLost to check if the round is lost. This function should take as the only argument the number guessesLeft.
+// How can you tell if the round has been lost with this information?
+// This function should return true if the round is lost, false otherwise.
+
+function hasLost(guessesLeft) {
+  if (guessesLeft === 0) {
+    return true;
+  } return false;
+}
 
   // var doesExist = false;
 
