@@ -145,24 +145,36 @@ function hasLost(guessesLeft) {
 // You'll want to use this function later to trigger starting a new round.
 
  function isEndOfRound(roundObject) {
-  if (roundObject.puzzleState.indexOf("_") !== -1){
-    return true;
-    } return false; 
-  }
+  if (roundObject.puzzleState.indexOf("_") !== -1) {
+    return true; 
+  } return false;
+}
+
+  // else (roundObject.puzzleState.indexOf("_") !== 0);
+  //     //  (guessesLeft > 1);
+  //    return false; 
+  // }
  
+  // 1.10 - setupGame function
+  // To track higher-level information like number of wins and losses, you'll need a new object: the game object. The game is the high-level overall object, where the round is the information associated with guessing around a specific word.
+  // To build and return this game object, create a function named setupGame. It should take three arguments, in this order: the array of words for the game, the number of wins, and the number of losses.
+  // The function should return an object with the following properties and values:
+  
+  
+  // words - the array of words passed as an argument
+  
+  // wins - the number of wins passed as an argument
+  
+  // losses - the number of losses passed as an argument
+  
+  // round - a new round object created with a random word from words
 
-  // var doesExist = false;
-
-  // for(var i = 0; i < roundObject.word.length; i++){
-  //   if(roundObject.word[i] === stringLetter){
-  //     doesExist = true;
+  // function setupGame(gameWords,numberWins, numberLosses);{
+  //   var gameObj = {
+  //     words: gameWords,
+  //     wins: numberWins,
+  //     losses: numberLosses,
+  //     round: randomWord(word),
   //   }
+  //   return gameObj;
   // }
-
-  // if(doesExist === true){
-  //   roundObject.puzzleState = fillBlanks(roundObject.word, roundObject.puzzleState, stringLetter)
-  // } else {
-  //   roundObject.guessesLeft--;
-  //   roundObject.wrongGuesses.push(stringLetter)
-  // }
-
