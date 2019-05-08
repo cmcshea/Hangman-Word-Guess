@@ -144,17 +144,16 @@ function hasLost(guessesLeft) {
 // Finally, to allow us to know if you need to start a new round, create a function to check if the round is over. Name it isEndOfRound. It should take the round object as an argument, and return true if the round is over, and false otherwise.
 // You'll want to use this function later to trigger starting a new round.
 
- function isEndOfRound(roundObject) {
-  if (roundObject.puzzleState.indexOf("_") !== -1) {
+ function isEndOfRound(wordObj) {
+  
+  if (wordObj.guessesLeft === 0) {
     return true; 
-  } return false;
+  } else if (hasWon(wordObj.puzzleState)) {
+    return true;
+  } 
+    return false;
 }
 
-  // else (roundObject.puzzleState.indexOf("_") !== 0);
-  //     //  (guessesLeft > 1);
-  //    return false; 
-  // }
- 
   // 1.10 - setupGame function
   // To track higher-level information like number of wins and losses, you'll need a new object: the game object. The game is the high-level overall object, where the round is the information associated with guessing around a specific word.
   // To build and return this game object, create a function named setupGame. It should take three arguments, in this order: the array of words for the game, the number of wins, and the number of losses.
@@ -169,12 +168,15 @@ function hasLost(guessesLeft) {
   
   // round - a new round object created with a random word from words
 
-  // function setupGame(gameWords,numberWins, numberLosses);{
-  //   var gameObj = {
-  //     words: gameWords,
-  //     wins: numberWins,
-  //     losses: numberLosses,
-  //     round: randomWord(word),
-  //   }
-  //   return gameObj;
-  // }
+  function setupGame(gameWords, numberWins, numberLosses) {
+    var gameObj = {
+      words: gameWords,
+      wins: numberWins,
+      losses: numberLosses,
+      round: setupRound(randomWord(gameWords)),
+    }
+    return gameObj;
+  }
+   setupGame(gameWords, 0, 0);
+
+   
