@@ -191,12 +191,24 @@ function hasLost(guessesLeft) {
    
   //  Finally, it should update the game object to have a new round with a new random word.
    
-   function startNewRound(gameObj) {
-     if (hasWon(puzzleState)) {
-       return isEndOfRound(gameObj);
-     }
 
-   }
+  function startNewRound(gameObj) {
+    if (hasWon(gameObj.roundObj.puzzleState)) {
+      gameObj(numberWins++);
+    alert("Congrats, you guessed the correct word " + randomWord + " !");
+    } else hasLost;
+  }
+  
+  //  function startNewRound(gameObj) {
+  //    if (hasWon.puzzleState);
+  //    gameObj.numberWins++;
+
+  //   //  }
+  //  }
+
+  
+  // return isEndOfRound(gameObj);
+
     //   return numberWins = ++ 1;
     //  }
   
@@ -214,3 +226,5 @@ function hasLost(guessesLeft) {
   //  1.12 - myGame variable
   //  Last but not least, you'll want to create the game so you can update it later when the user interacts with the page.
   //  Create a variable myGame at the global scope equal to the game object, with the same properties as defined above in the setupGame function section.
+
+  
