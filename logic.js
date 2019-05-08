@@ -181,6 +181,7 @@ function hasLost(guessesLeft) {
   //  1.11 - startNewRound function
   //  Now that you can check if you should start a new round, you need to create a function to start a new round on the game. To do this, create a function named startNewRound that takes a single argument: the game object. This function is going to update the round on the game object. It should:
   //  Check to see if the user has won or lost, and update the number of wins and/or losses on the game accordingly.
+   
 
   //  Trigger a single alert that informs the user if they've won or lost, and what the word was (the alert just needs to contain the word somewhere).
    
@@ -192,12 +193,22 @@ function hasLost(guessesLeft) {
    
    function startNewRound(gameObj) {
      if (hasWon(puzzleState)) {
-      
+       return isEndOfRound(gameObj);
      }
-      return numberWins = ++ 1;
-     }
+
+   }
+    //   return numberWins = ++ 1;
+    //  }
   
-   
+    //  function isEndOfRound(wordObj) {
+  
+    //   if (wordObj.guessesLeft === 0) {
+    //     return true; 
+    //   } else if (hasWon(wordObj.puzzleState)) {
+    //     return true;
+    //   } 
+    //     return false;
+    // }
 
 
   //  1.12 - myGame variable
