@@ -150,7 +150,12 @@ var myGame = {
 document.getElementById("puzzle-state").innerText = myGame.round.puzzleState.join(" ")
 
 document.addEventListener("keypress", function(event){
-  console.log(myGame.round.word)
-  console.log(String.fromCharCode(event.keyCode))
+myGame.round.puzzleState;
+// puzzleState = event.key;
+
+  // console.log(myGame.round.stringLetter)
+  // console.log(String.fromCharCode(event.keyCode))
 
 })
+
+// updateRound(roundObject, stringLetter)
