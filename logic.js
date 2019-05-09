@@ -2,13 +2,12 @@
 
 var gameWords = ["colombia", "india", "netherlands", "germany", "hungary"];
 
-console.log(gameWords.length);
-console.log(gameWords[2]);
 
 function randomWord(words) {
   var random = Math.floor(Math.random() * words.length);
   return words[random];
 }
+
 //  1.2 - isCorrectGuess function
 
 function isCorrectGuess(word, letter) {
@@ -45,14 +44,14 @@ function fillBlanks(word, puzzleArray, guess) {
   for (var i = 0; i < word.length; i++) {
     if (word[i].toLowerCase() === guess.toLowerCase()) {
       puzzleArray[i] = guess;
-    } 
+    }
   }
   return puzzleArray;
 }
 
 // 1.5 - setupRound function
 
-function setupRound(word){
+function setupRound(word) {
   var wordObj = {
     word: word,
     guessesLeft: 9,
@@ -64,8 +63,8 @@ function setupRound(word){
 
 // 1.6 - updateRound function
 
-function updateRound(roundObject, stringLetter){
-  if(roundObject.word.indexOf(stringLetter) != -1){
+function updateRound(roundObject, stringLetter) {
+  if (roundObject.word.indexOf(stringLetter) != -1) {
     roundObject.puzzleState = fillBlanks(roundObject.word, roundObject.puzzleState, stringLetter)
   } else {
     roundObject.guessesLeft--;
@@ -80,9 +79,9 @@ function updateRound(roundObject, stringLetter){
 // The function should return true if the round is won, false otherwise.
 
 function hasWon(puzzleState) {
-  if (puzzleState.indexOf("_") !== -1){
-  return false;
-  } return true; 
+  if (puzzleState.indexOf("_") !== -1) {
+    return false;
+  } return true;
 }
 
 
@@ -101,76 +100,57 @@ function hasLost(guessesLeft) {
 // Finally, to allow us to know if you need to start a new round, create a function to check if the round is over. Name it isEndOfRound. It should take the round object as an argument, and return true if the round is over, and false otherwise.
 // You'll want to use this function later to trigger starting a new round.
 
- function isEndOfRound(wordObj) {
-  
+function isEndOfRound(wordObj) {
+
   if (wordObj.guessesLeft === 0) {
-    return true; 
+    return true;
   } else if (hasWon(wordObj.puzzleState)) {
     return true;
-  } 
-    return false;
+  }
+  return false;
 }
 
-  // 1.10 - setupGame function
+// 1.10 - setupGame function
 
-  function setupGame(gameWords, numberWins, numberLosses) {
-    var gameObj = {
-      words: gameWords,
-      wins: numberWins,
-      losses: numberLosses,
-      round: setupRound(randomWord(gameWords)),
-    }
-    return gameObj;
+function setupGame(gameWords, numberWins, numberLosses) {
+  var gameObj = {
+    words: gameWords,
+    wins: numberWins,
+    losses: numberLosses,
+    round: setupRound(randomWord(gameWords)),
   }
+  return gameObj;
+}
 
-  //  1.11 - startNewRound function
-  //  Now that you can check if you should start a new round, you need to create a function to start a new round on the game. To do this, create a function named startNewRound that takes a single argument: the game object. This function is going to update the round on the game object. It should:
-  //  Check to see if the user has won or lost, and update the number of wins and/or losses on the game accordingly.
-   
+//  1.11 - startNewRound function
 
-  //  Trigger a single alert that informs the user if they've won or lost, and what the word was (the alert just needs to contain the word somewhere).
-   
-  //  For example: "You lost! The word was 'heart'. Try again! ❤️"
-   
-   
-   
-  //  Finally, it should update the game object to have a new round with a new random word.
-   
 
-  function startNewRound(gameObj) {
-    if  (hasWon(gameObj.round.puzzleState)) {
-      alert("You won " + gameObj.round.word + " !");
-      gameObj.round.update.numberWins = 1++;
-  
-    } else hasLost;
+function startNewRound(gameObj) {
+  if (hasWon(gameObj.round.puzzleState)) {
+    gameObj.wins++;
+    alert("You won " + gameObj.round.word + " !");
+
+  } else {
+  gameObj.losses++
+    alert("You lost " + gameObj.round.word + " !");
   }
-  
-  //  function startNewRound(gameObj) {
-    // (hasWon(gameObj.roundObj.puzzleState))
-  //    gameObj.numberWins++;
-
-  //   //  }
-  //  }
-
-  
-  // return isEndOfRound(gameObj);
-
-    //   return numberWins = ++ 1;
-    //  }
-  
-    //  function isEndOfRound(wordObj) {
-  
-    //   if (wordObj.guessesLeft === 0) {
-    //     return true; 
-    //   } else if (hasWon(wordObj.puzzleState)) {
-    //     return true;
-    //   } 
-    //     return false;
-    // }
+}
 
 
-  //  1.12 - myGame variable
-  //  Last but not least, you'll want to create the game so you can update it later when the user interacts with the page.
-  //  Create a variable myGame at the global scope equal to the game object, with the same properties as defined above in the setupGame function section.
+//  1.12 - myGame variable
 
-  
+
+var myGame = {
+  words: gameWords,
+  wins: 0,
+  losses: 0,
+  round: setupRound(randomWord(gameWords))
+}
+
+document.getElementById("puzzle-state").innerText = myGame.round.puzzleState.join(" ")
+
+document.addEventListener("keypress", function(event){
+  console.log(myGame.round.word)
+  console.log(String.fromCharCode(event.keyCode))
+
+})
