@@ -153,16 +153,19 @@ document.addEventListener("keypress", function (event) {
 
   //call the isCorrectGuess function when letter chosen. To call the function, add the paramaters () you want called
 
-  isCorrectGuess();
-  fillBlanks();
-  updateRound();
-  hasWon();
-  hasLost();
+  document.getElementById("puzzle-state").innerText = myGame.round.puzzleState.join(" ")
+  isCorrectGuess(myGame.round.word, event.key);
+  fillBlanks(myGame.round.word, myGame.round.puzzleState, event.key);
+  // updateRound();
+  // hasWon();
+  // hasLost();
 
-  setupRound(gameWords).randomWord.event.key
+})
+
+ 
   // console.log(setupRound(gameWords))
 
-  isCorrectGuess(randomWord(gameWords), event.key)
+  // isCorrectGuess(randomWord(gameWords), event.key)
 
   //wordObj needs to be updated?
   
@@ -172,6 +175,6 @@ document.addEventListener("keypress", function (event) {
 
 
 
-})
+
 
 // updateRound(roundObject, stringLetter)
