@@ -131,7 +131,7 @@ function startNewRound(gameObj) {
     alert("You won " + gameObj.round.word + " !");
 
   } else {
-  gameObj.losses++
+    gameObj.losses++
     alert("You lost " + gameObj.round.word + " !");
   }
 }
@@ -149,12 +149,28 @@ var myGame = {
 
 document.getElementById("puzzle-state").innerText = myGame.round.puzzleState.join(" ")
 
-document.addEventListener("keypress", function(event){
-myGame.round.puzzleState;
-// puzzleState = event.key;
+document.addEventListener("keypress", function (event) {
 
-  // console.log(myGame.round.stringLetter)
-  // console.log(String.fromCharCode(event.keyCode))
+  //call the isCorrectGuess function when letter chosen. To call the function, add the paramaters () you want called
+
+  isCorrectGuess();
+  fillBlanks();
+  updateRound();
+  hasWon();
+  hasLost();
+
+  setupRound(gameWords).randomWord.event.key
+  // console.log(setupRound(gameWords))
+
+  isCorrectGuess(randomWord(gameWords), event.key)
+
+  //wordObj needs to be updated?
+  
+  // myGame.round.puzzleState(event.keyCode)
+  // puzzleState = event.key;
+
+
+
 
 })
 
